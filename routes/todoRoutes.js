@@ -3,15 +3,16 @@ import { authenticateToken } from '../middleware/auth.js';
 import {
     getTodos,
     addTodo,
-    updateTodo,
+    updateTodoStatus,
 } from '../controllers/TodoController.js';
 
 const router = express.Router();
 
-router.get('/', authenticateToken, getTodos);
+router.get('/getTodos', authenticateToken, getTodos);
 
-router.post('/', authenticateToken, addTodo);
+router.post('/addTodo', authenticateToken, addTodo);
 
-router.put('/:id/status', authenticateToken, updateTodo);
+router.put('/:id/status', authenticateToken, updateTodoStatus);
 
 export default router;
+
